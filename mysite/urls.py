@@ -28,5 +28,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     # path('index/', index2.as_view()),               ### - ++.a  as_view() - Стандарт запуска из класса
-    path('base/', base),                   ### - +
+    path('base/', base),                   ### - + проверка
 ]
