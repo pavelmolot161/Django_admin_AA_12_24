@@ -1,3 +1,4 @@
+### - 18.12.24 Именно этот клон работает с репозиторием
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
