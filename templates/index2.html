@@ -1,0 +1,24 @@
+{% extends 'index.html' %}          <!-- extends Указывает от какого шаблона будет наследоватся, или кто родительский класс-->
+
+{% block title %}Home - {{ block.super }}{% endblock %}
+<!---->
+{% block header %}
+    {{ block.super }}                                            <!--Прийдет инфа из другого блока по наследованию-->
+    <h2>Welcome to the 2 Page</h2>
+{% endblock %}
+
+{% block content %}
+    <h2> Latest Posts </h2>
+    <ul>
+        <li>Post 1</li>               <!--Коментарий-->
+        <li>Post 2</li>
+        <li>Post 3</li>
+    </ul>
+{% endblock %}                        <!--Закрытие блока-->
+
+{% block footer %}
+    <p>Thanks for visiting</p>
+    {{ block.super }}                                      <!--Переносит инфу из блока footer родительского класса-->
+{% endblock %}
+
+
