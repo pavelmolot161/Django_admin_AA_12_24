@@ -1,31 +1,35 @@
 
 from django.shortcuts import render
+from django.http import HttpResponse           ### - библиотека для классов и представлений
 
 # Create your views here. (Создавайте свои мнения здесь.)
 
-### - 16.12.24
-### - 17.12.24    +
-### - requestrequest - запрос от пользователя
-### - "index.html" - указываем шаблон который хотим вернуть проверка
-def index(request):                                        ### - обработка логики и возврат шаблона пользователю
-    text = 1
-    name = 'tom'
-    list = ['aa', 'bb', 'cc']
-    list1 = [1.1, 2.2, 3.3, 4.4]
-    len_list = len(list1)
-    context = {
-        'text':text,
-        "name": name,
-        "list":list,
-        "list1":list1,
-        "len_list":len_list
-    }
+### - 19.12.24    ++
+### - request - запрос от пользователя
+### - "index.html" - указываем шаблон который хотим вернуть
 
-    return render(request, "index.html", context)
 
-def base (request):
-    return render(request, "index2.html")       ### - +
+def index(request):                                 ### - ++ - обработка логики и возврат шаблона пользователю
+    name = request.GET.get('name', "Guest")         ### - Guest - неизвестный пользователь или не авторизованный
+    age = request.GET.get('age', "0")
+    return HttpResponse(f'Hello, {name} {age}!')
 
+
+def simple_post(request):                             ### - ++
+    if request.method == "POST":
+        message = request.POST.get("message", "")
+        return HttpResponse(f"You said: {message}")          ### - You said это надтись перед выводом сообщения
+    return render(request, "index2.html")
+
+
+
+
+#___________________________________________________________________________________________________________________
+### - 19.12.24 справочная информация
+# def index(request):                                     ### - ++ - обработка логики и возврат шаблона пользователю
+#     return HttpResponse('Hello', status=400, reason='!!!')  ### - ++
+                                    ### - Выводит в консоль данные о запросах пользователей и о каких либо ошибках
+#___________________________________________________________________________________________________________________
 ### - 15.12.24
 
 # class index2(TemplateView):                                ### - класс наследуется от базового шаблона TemplateView

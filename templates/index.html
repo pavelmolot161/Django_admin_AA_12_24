@@ -2,41 +2,13 @@
 <!DOCTYPE html>
 
 <html lang="en">
-{% load static %}                                        <!--Импорт static или загрузка функции проверка-->
+
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}My Site{% endblock %}</title>
-    <link rel = 'stylesheet' type="text/css" href="{% static 'style.css' %}">
+    <title>Title</title>
 </head>
 
-<head>
 <body>
-    <header>
-        {% block header %}
-        <h1>Welcome to My Site 1</h1>
-        {% endblock %}
-    </header>
 
-    <nav>
-        {% block navigation %}
-        <ul>
-            <li><a href='/'>Home</a></li>
-            <li><a href='/about/'>About</a></li>
-            <li><a href='/contact/'>Contact</a></li>
-        </ul>
-        {% endblock %}
-    </nav>
-
-    <main>
-        {% block content %}
-            <p>Тут будут посты</p>                                          <!--Коментарий-->
-        {% endblock %}
-    </main>
-
-    <footer>
-        {% block footer %}
-            <p>2023 My Site</p>
-        {% endblock %}
-    </footer>
 </body>
 </html>

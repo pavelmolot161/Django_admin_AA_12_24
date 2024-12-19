@@ -116,8 +116,16 @@
 
 ### - 18.12.24 Именно этот клон работает с репозиторием
 
+### - 19.12.24
 
-### - 10.56
+### - 25) Внесены изменения в папку views:
+#                    def index(request):
+#                       name = request.GET.get('name', "Guest")
+#                       return HttpResponse(f'Hello, {name}!')
+
+### - 26) Работа через адресную строку браузера - Это передача через ГЕТ запрос:
+#                   http://127.0.0.1:8000/? >>> http://127.0.0.1:8000/?name=Pavel >>> Enter
+#                   http://127.0.0.1:8000/? >>> http://127.0.0.1:8000/?name=Pavel&age=30 >>> Enter
 
 
 
@@ -286,6 +294,76 @@
 #     {{ block.super }}
 # {% endblock %}
 
+####################################################################################################################
 
+### index.html 19.12.23
+#
+# <!DOCTYPE html>
+#
+# <html lang="en">
+# {% load static %}                                        <!--Импорт static или загрузка функции проверка-->
+# <head>
+#     <meta charset="UTF-8">
+#     <title>{% block title %}My Site{% endblock %}</title>
+#     <link rel = 'stylesheet' type="text/css" href="{% static 'style.css' %}">
+# </head>
+#
+# <head>
+# <body>
+#     <header>
+#         {% block header %}
+#         <h1>Welcome to My Site 1</h1>
+#         {% endblock %}
+#     </header>
+#
+#     <nav>
+#         {% block navigation %}
+#         <ul>
+#             <li><a href='/'>Home</a></li>
+#             <li><a href='/about/'>About</a></li>
+#             <li><a href='/contact/'>Contact</a></li>
+#         </ul>
+#         {% endblock %}
+#     </nav>
+#
+#     <main>
+#         {% block content %}
+#             <p>Тут будут посты</p>                                          <!--Коментарий-->
+#         {% endblock %}
+#     </main>
+#
+#     <footer>
+#         {% block footer %}
+#             <p>2023 My Site</p>
+#         {% endblock %}
+#     </footer>
+# </body>
+# </html>
 
+####################################################################################################################
 
+### - index2.html 19.12.24
+
+# {% extends 'index.html' %}          <!-- extends Указывает от какого шаблона будет наследоватся, или кто родительский класс-->
+#
+# {% block title %}Home - {{ block.super }}{% endblock %}
+# <!---->
+# {% block header %}
+#     {{ block.super }}                                            <!--Прийдет инфа из другого блока по наследованию-->
+#     <h2>Welcome to the 2 Page</h2>
+# {% endblock %}
+#
+# {% block content %}
+#     <h2> Latest Posts </h2>
+#     <ul>
+#         <li>Post 1</li>               <!--Коментарий проверка-->
+#         <li>Post 2</li>
+#         <li>Post 3</li>
+#     </ul>
+# {% endblock %}                        <!--Закрытие блока проверка-->
+#
+# {% block footer %}
+#     <p>Thanks for visiting</p>
+#     {{ block.super }}                                      <!--Переносит инфу из блока footer родительского класса-->
+# {% endblock %}
+#

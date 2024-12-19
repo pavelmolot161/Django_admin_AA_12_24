@@ -1,24 +1,17 @@
-{% extends 'index.html' %}          <!-- extends Указывает от какого шаблона будет наследоватся, или кто родительский класс-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+    {% csrf_token %}                <!--Каждый пост запрос должен содержать {% csrf_token %} для скрытия информации-->
+    <input type="text" name="message">                                                           <!--Поле для ввода-->
+    <button type="submit">Send</button>                                          <!--Кнопка для отправки результата-->
+    </form>
 
-{% block title %}Home - {{ block.super }}{% endblock %}
+</body>
+</html>
+
 <!---->
-{% block header %}
-    {{ block.super }}                                            <!--Прийдет инфа из другого блока по наследованию-->
-    <h2>Welcome to the 2 Page</h2>
-{% endblock %}
-
-{% block content %}
-    <h2> Latest Posts </h2>
-    <ul>
-        <li>Post 1</li>               <!--Коментарий проверка-->
-        <li>Post 2</li>
-        <li>Post 3</li>
-    </ul>
-{% endblock %}                        <!--Закрытие блока проверка-->
-
-{% block footer %}
-    <p>Thanks for visiting</p>
-    {{ block.super }}                                      <!--Переносит инфу из блока footer родительского класса-->
-{% endblock %}
-
-

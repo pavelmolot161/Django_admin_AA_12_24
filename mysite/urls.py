@@ -20,13 +20,16 @@ from django.urls import path
 ### - 14.12.24
 ### - 15.12.24
 ### - 17.12.24    +
-from app.views import index, base
+### - 19.12.24    +++
+from app.views import index, simple_post   ### - +++
 from app.views import index
-from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
+    path('index/', simple_post),           ### - +++
+
     # path('index/', index2.as_view()),               ### - ++.a  as_view() - Стандарт запуска из класса
-    path('base/', base),                   ### - + проверка
+    # path('base/', base),                            ### - +
 ]
