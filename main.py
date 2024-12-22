@@ -128,12 +128,35 @@
 #                   http://127.0.0.1:8000/? >>> http://127.0.0.1:8000/?name=Pavel&age=30 >>> Enter
 
 
+### - 22.12.24 ПРОДОЛЖЕНИЕ В 19 МОДУЛЕ
+
+### - 27) Заполнение папки models.py:
+
+### - 28) ЗАПУСКАЕМ команду, чтобы создать миграции для наших изменений в моделях:
+#                       (.venv) PS D:\Rabota_12_24\Django_admin_AA_12_24>  >>> python manage.py makemigrations
+
+### - ПРИМЕНЯЕМ миграции:
+#                        (.venv) PS D:\Rabota_12_24\Django_admin_AA_12_24> >>> python manage.py migrate
+
+### - После создания новых моделей создаем миграции к ним:
+#                        (.venv) PS D:\Rabota_12_24\Django_admin_AA_12_24>  >>> python manage.py makemigrations
+
+#        вывод к консоль:   Migrations for 'app':
+                        #       app\migrations\0003_student_course.py
+                        #       + Create model Student
+                        #       + Create model Course
+                        #   (.venv) PS D:\Rabota_12_24\Django_admin_AA_12_24>
+
+### - опять ПРИМЕНЯЕМ миграции после чего таблици появятся в базе данных:
+#                        (.venv) PS D:\Rabota_12_24\Django_admin_AA_12_24> >>> python manage.py migrate
 
 
 
-###  - ghjdthrf 222
 
-# import django
+
+
+
+
 
 
 
