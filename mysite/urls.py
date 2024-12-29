@@ -21,15 +21,28 @@ from django.urls import path
 ### - 15.12.24
 ### - 17.12.24    +
 ### - 19.12.24    +++
+### - 29.12.24    ++++
 from app.views import index, simple_post   ### - +++
 from app.views import index
-
+from app.views import index_1, index_1a    ### - ++++
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('index/', simple_post),           ### - +++
-
-    # path('index/', index2.as_view()),               ### - ++.a  as_view() - Стандарт запуска из класса
-    # path('base/', base),                            ### - +
+    path('', index_1),
+    path('index_1a/', index_1a)
 ]
+
+
+
+
+
+
+### - Справочно_____________________________________________________________________________________________
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', index),
+#     path('index/', simple_post),           ### - +++
+#
+#     # path('index/', index2.as_view()),               ### - ++.a  as_view() - Стандарт запуска из класса
+#     # path('base/', base),                            ### - +
+# ]

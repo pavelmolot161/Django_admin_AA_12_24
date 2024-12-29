@@ -1,5 +1,6 @@
 from django.db import models
 ### - 22.12.24
+### - 25.12.24 (+)
 
 # Модели с отношением "один ко многим"
 # 1 usage
@@ -48,3 +49,5 @@ class Course(models.Model):
     students = models.ManyToManyField(Student, related_name='courses')
     def __str__(self):
         return self.name
+
+
